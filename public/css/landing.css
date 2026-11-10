@@ -1,0 +1,496 @@
+/* =========================================================================
+   SIPKA IDB Bali — Landing Editorial
+   Gaya: minimal editorial (Inter extralight, monokrom, grid lega)
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap');
+
+:root {
+    --ed-ink: #0d0d0d;
+    --ed-muted: #666666;
+    --ed-line: #e5e5e5;
+    --ed-bg: #ffffff;
+    --ed-dark: #0d0d0d;
+    --ed-dark-line: rgba(255, 255, 255, .14);
+    --ed-dark-muted: rgba(255, 255, 255, .55);
+    --ed-pad-x: 48px;
+}
+
+html.ed-html { scroll-behavior: smooth; }
+
+body.ed-body {
+    margin: 0;
+    background: var(--ed-bg);
+    color: var(--ed-ink);
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body.ed-body img { display: block; }
+
+body.ed-body a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================================================================
+   NAV — transparan di atas hero, putih solid saat digulir
+   ========================================================================= */
+.ed-nav {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 22px var(--ed-pad-x);
+    color: #fff;
+    transition: background .35s ease, color .35s ease, box-shadow .35s ease, padding .35s ease;
+}
+
+.ed-nav.is-scrolled {
+    background: rgba(255, 255, 255, .94);
+    backdrop-filter: blur(12px);
+    color: var(--ed-ink);
+    box-shadow: 0 1px 0 var(--ed-line);
+    padding: 14px var(--ed-pad-x);
+}
+
+.ed-brand { display: flex; align-items: center; gap: 12px; }
+.ed-brand img { height: 30px; width: auto; background: #fff; border-radius: 6px; padding: 3px 6px; }
+.ed-brand span {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3.6px;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.ed-nav-links { display: flex; gap: 36px; margin-left: auto; }
+.ed-nav-links a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3.3px;
+    text-transform: uppercase;
+    opacity: .6;
+    transition: opacity .2s;
+}
+.ed-nav-links a:hover { opacity: 1; }
+
+.ed-nav-cta { display: flex; align-items: center; gap: 28px; }
+.ed-nav-cta a {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3.3px;
+    text-transform: uppercase;
+    opacity: .6;
+    transition: opacity .2s;
+}
+.ed-nav-cta a:hover { opacity: 1; }
+.ed-nav-cta .ed-nav-strong { opacity: 1; }
+
+/* =========================================================================
+   HERO — foto penuh layar dengan overlay gelap
+   ========================================================================= */
+.ed-hero { position: relative; min-height: 100svh; display: flex; overflow: hidden; }
+
+.ed-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.ed-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(13, 13, 13, .5) 0%, rgba(13, 13, 13, .22) 45%, rgba(13, 13, 13, .68) 100%);
+}
+
+.ed-hero-content { position: relative; z-index: 2; width: 100%; display: flex; flex-direction: column; justify-content: flex-end; padding: 0 var(--ed-pad-x) 88px; }
+
+.ed-hero-eyebrow {
+    position: absolute;
+    top: 108px;
+    left: var(--ed-pad-x);
+    margin: 0;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3.3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .55);
+}
+
+.ed-hero h1 {
+    margin: 0;
+    color: #fff;
+    font-size: clamp(2.5rem, 6.5vw, 4rem);
+    font-weight: 200;
+    letter-spacing: -1.6px;
+    line-height: 1.06;
+    max-width: 16ch;
+}
+
+.ed-hero-scroll {
+    position: absolute;
+    right: var(--ed-pad-x);
+    bottom: 88px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+}
+
+.ed-hero-scroll span {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 3.3px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, .5);
+}
+
+.ed-hero-scroll::after {
+    content: '';
+    width: 1px;
+    height: 44px;
+    background: rgba(255, 255, 255, .35);
+}
+
+/* =========================================================================
+   SECTION — container editorial (padding lega 144px)
+   ========================================================================= */
+.ed-bleed { width: 100%; }
+.ed-bleed.ed-dark { background: var(--ed-dark); color: #fff; }
+
+.ed-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 144px var(--ed-pad-x);
+}
+
+.ed-section-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 64px;
+}
+
+.ed-label {
+    margin: 0 0 16px;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3.3px;
+    text-transform: uppercase;
+    color: var(--ed-muted);
+}
+.ed-dark .ed-label { color: var(--ed-dark-muted); }
+
+.ed-h2 {
+    margin: 0;
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    font-weight: 200;
+    letter-spacing: -1.2px;
+    line-height: 1.08;
+}
+
+.ed-counter {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3.3px;
+    text-transform: uppercase;
+    color: var(--ed-muted);
+    padding-bottom: 10px;
+}
+.ed-dark .ed-counter { color: var(--ed-dark-muted); }
+
+/* =========================================================================
+   RUANGAN — grid editorial 2 kolom bernomor
+   ========================================================================= */
+.ed-rooms { display: grid; grid-template-columns: repeat(2, 1fr); gap: 72px 48px; }
+
+.ed-room-img {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.ed-room-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .7s cubic-bezier(.2, .6, .2, 1);
+}
+
+.ed-room:hover .ed-room-img img { transform: scale(1.035); }
+
+.ed-room-num {
+    margin: 22px 0 6px;
+    font-size: 11px;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: var(--ed-muted);
+}
+
+.ed-room-name {
+    margin: 0 0 8px;
+    font-size: 1.45rem;
+    font-weight: 300;
+    letter-spacing: -.3px;
+}
+
+.ed-room-meta {
+    margin: 0;
+    font-size: 11px;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: var(--ed-muted);
+}
+
+/* =========================================================================
+   KUTIPAN — foto + pernyataan besar
+   ========================================================================= */
+.ed-quote {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+    padding-top: 96px;
+    padding-bottom: 96px;
+}
+
+.ed-quote-img { aspect-ratio: 4 / 5; overflow: hidden; background: #f0f0f0; }
+.ed-quote-img img { width: 100%; height: 100%; object-fit: cover; }
+
+.ed-quote-fig blockquote {
+    margin: 0 0 28px;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 200;
+    letter-spacing: -.5px;
+    line-height: 1.3;
+}
+
+.ed-quote-fig figcaption {
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3.3px;
+    text-transform: uppercase;
+    color: var(--ed-muted);
+}
+
+/* =========================================================================
+   TENTANG — seksi gelap
+   ========================================================================= */
+.ed-about-title { max-width: 20ch; margin-bottom: 56px; }
+
+.ed-about-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    max-width: 900px;
+}
+
+.ed-about-cols p {
+    margin: 0;
+    color: var(--ed-dark-muted);
+    font-size: .95rem;
+}
+
+/* =========================================================================
+   ALUR — langkah bernomor dengan garis
+   ========================================================================= */
+.ed-steps { display: grid; grid-template-columns: 1fr 1fr; column-gap: 48px; }
+
+.ed-step { border-top: 1px solid var(--ed-line); padding: 36px 0 60px; }
+
+.ed-step-num {
+    margin: 0 0 14px;
+    font-size: 11px;
+    letter-spacing: 1.1px;
+    text-transform: uppercase;
+    color: var(--ed-muted);
+}
+
+.ed-step h3 {
+    margin: 0 0 10px;
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: -.2px;
+}
+
+.ed-step p {
+    margin: 0;
+    max-width: 44ch;
+    color: var(--ed-muted);
+    font-size: .9rem;
+}
+
+/* =========================================================================
+   FITUR — baris editorial ala jurnal
+   ========================================================================= */
+.ed-rows { border-top: 1px solid var(--ed-line); }
+
+.ed-row {
+    display: grid;
+    grid-template-columns: 140px 1fr auto;
+    align-items: baseline;
+    column-gap: 40px;
+    padding: 34px 0;
+    border-bottom: 1px solid var(--ed-line);
+}
+
+.ed-row-tag {
+    font-size: 11px;
+    letter-spacing: 3.3px;
+    text-transform: uppercase;
+    color: var(--ed-muted);
+}
+
+.ed-row-h {
+    margin: 0;
+    font-size: clamp(1.2rem, 2.2vw, 1.7rem);
+    font-weight: 300;
+    letter-spacing: -.3px;
+    line-height: 1.25;
+    transition: letter-spacing .25s ease;
+}
+
+.ed-row-p {
+    margin: 8px 0 0;
+    max-width: 60ch;
+    color: var(--ed-muted);
+    font-size: .9rem;
+}
+
+.ed-row-arrow {
+    font-size: 1.25rem;
+    color: var(--ed-muted);
+    transition: transform .25s ease, color .25s ease;
+}
+
+.ed-row:hover .ed-row-arrow { transform: translateX(8px); color: var(--ed-ink); }
+.ed-row:hover .ed-row-h { letter-spacing: -.1px; }
+
+/* =========================================================================
+   CTA — seksi gelap penutup
+   ========================================================================= */
+.ed-cta .ed-h2 { color: #fff; }
+
+.ed-cta-link {
+    display: inline-block;
+    margin-top: 48px;
+    color: #fff;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    font-weight: 200;
+    letter-spacing: -.5px;
+    border-bottom: 1px solid rgba(255, 255, 255, .4);
+    padding-bottom: 8px;
+    transition: border-color .25s;
+}
+
+.ed-cta-link:hover { border-color: #fff; }
+
+.ed-cta-sub {
+    margin: 32px 0 0;
+    font-size: 11px;
+    letter-spacing: 3.3px;
+    text-transform: uppercase;
+    color: var(--ed-dark-muted);
+}
+
+.ed-cta-sub a { border-bottom: 1px solid rgba(255, 255, 255, .35); padding-bottom: 2px; }
+.ed-cta-sub a:hover { border-color: #fff; }
+
+/* =========================================================================
+   FOOTER
+   ========================================================================= */
+.ed-footer { background: var(--ed-dark); color: #fff; border-top: 1px solid var(--ed-dark-line); }
+
+.ed-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 64px;
+}
+
+.ed-footer-wordmark {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 3.6px;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+}
+
+.ed-footer-brand p {
+    margin: 0;
+    max-width: 40ch;
+    color: var(--ed-dark-muted);
+    font-size: .88rem;
+}
+
+.ed-footer-head {
+    margin: 0 0 18px;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 3.3px;
+    text-transform: uppercase;
+    color: var(--ed-dark-muted);
+}
+
+.ed-footer-grid a {
+    display: block;
+    padding: 5px 0;
+    font-size: .88rem;
+    color: rgba(255, 255, 255, .78);
+    transition: color .2s;
+}
+
+.ed-footer-grid a:hover { color: #fff; }
+
+.ed-footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-top: 72px;
+    padding-top: 26px;
+    border-top: 1px solid var(--ed-dark-line);
+    font-size: 11px;
+    letter-spacing: 3.3px;
+    text-transform: uppercase;
+    color: var(--ed-dark-muted);
+}
+
+/* =========================================================================
+   RESPONSIVE
+   ========================================================================= */
+@media (max-width: 991.98px) {
+    :root { --ed-pad-x: 28px; }
+    .ed-section { padding: 96px var(--ed-pad-x); }
+    .ed-nav-links { display: none; }
+    .ed-nav { gap: 20px; }
+    .ed-nav-cta { margin-left: auto; gap: 20px; }
+
+    .ed-rooms { grid-template-columns: 1fr; gap: 56px; }
+    .ed-quote { grid-template-columns: 1fr; gap: 48px; padding-top: 80px; padding-bottom: 80px; }
+    .ed-quote-img { aspect-ratio: 16 / 10; }
+    .ed-about-cols { grid-template-columns: 1fr; gap: 24px; }
+    .ed-steps { grid-template-columns: 1fr; }
+    .ed-step { padding: 32px 0 40px; }
+    .ed-footer-grid { grid-template-columns: 1fr; gap: 44px; }
+    .ed-hero-scroll { display: none; }
+}
+
+@media (max-width: 575.98px) {
+    :root { --ed-pad-x: 20px; }
+    .ed-section { padding: 72px var(--ed-pad-x); }
+    .ed-nav { padding: 16px var(--ed-pad-x); }
+    .ed-nav.is-scrolled { padding: 12px var(--ed-pad-x); }
+    .ed-brand span { font-size: 11px; letter-spacing: 2.6px; }
+    .ed-nav-cta a { font-size: 10px; letter-spacing: 2.4px; }
+    .ed-hero-content { padding-bottom: 64px; }
+    .ed-hero-eyebrow { top: 84px; right: var(--ed-pad-x); }
+    .ed-row { grid-template-columns: 1fr; row-gap: 10px; }
+    .ed-row-arrow { display: none; }
+    .ed-section-head { margin-bottom: 44px; }
+    .ed-cta-link { margin-top: 36px; }
+}

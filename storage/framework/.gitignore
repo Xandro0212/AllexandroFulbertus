@@ -1,0 +1,9 @@
+*
+!cache/
+!sessions/
+!views/
+!testing/
+!compiled.php
+!config.php
+!down
+!.gitignore
