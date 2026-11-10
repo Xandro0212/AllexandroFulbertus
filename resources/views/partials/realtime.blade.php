@@ -42,16 +42,13 @@
     }
 
     // ---- Inisialisasi Echo (Reverb) ----
-    // Production (https) memakai wss lewat proxy nginx; lokal (http) memakai ws langsung.
-    var secure = window.location.protocol === 'https:';
-    var reverbPort = {{ config('reverb.servers.reverb.port', 8080) }};
     window.Echo = new Echo({
         broadcaster: 'reverb',
         key: '{{ config('broadcasting.connections.reverb.key') }}',
         wsHost: window.location.hostname,
-        wsPort: secure ? 443 : reverbPort,
-        wssPort: secure ? 443 : reverbPort,
-        forceTLS: secure,
+        wsPort: {{ config('reverb.servers.reverb.port', 8080) }},
+        wssPort: {{ config('reverb.servers.reverb.port', 8080) }},
+        forceTLS: false,
         enabledTransports: ['ws', 'wss'],
         auth: {
             headers: {
